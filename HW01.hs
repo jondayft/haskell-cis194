@@ -29,13 +29,13 @@ doubleEveryOther = zipWith
 
 -- Calculate the sum of all the digits in every Integer.
 sumDigits :: [Integer] -> Integer
--- sumDigits = map doubleEveryOther [1,2,3]
+sumDigits = sum . concatMap toRevDigits
 
 -- Exercise 5 -----------------------------------------
 
 -- Validate a credit card number using the above functions.
 luhn :: Integer -> Bool
-luhn = undefined
+luhn = (0 ==) . lastDigit . sumDigits . doubleEveryOther . toRevDigits
 
 -- Exercise 6 -----------------------------------------
 
