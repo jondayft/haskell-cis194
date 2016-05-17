@@ -1,6 +1,9 @@
 {-# OPTIONS_GHC -Wall #-}
 module HW02 where
 
+import Data.List  
+import Control.Monad 
+
 -- Mastermind -----------------------------------------
 
 -- A peg can be one of six colors
@@ -55,8 +58,11 @@ filterCodes = filter . isConsistent
 
 -- Exercise 6 -----------------------------------------
 
-allCodes :: Int -> [Code]
-allCodes = undefined
+allCodes :: () -> [Code]
+allCodes = permutations colors
+
+nAllCodes :: Int -> [Code]
+nAllcodes n = replicateM n colors
 
 -- Exercise 7 -----------------------------------------
 
